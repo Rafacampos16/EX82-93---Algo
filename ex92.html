@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercício 92 - Múltiplos de 3 e 5 em Ordem Decrescente</title>
+<style>
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.resultado {
+  font-size: 18px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Exercício 92:</h2>
+  <p>Faça uma aplicação para imprimir em ordem decrescente todos os números múltiplos de
+    3 e de 5 compreendidos entre 30 e 300.</p>
+  <div class="resultado" id="resultado"></div>
+</div>
+
+<script>
+let numeros = [];
+for (let i = 300; i >= 30; i--) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    numeros.push(i);
+  }
+}
+const resultadoDiv = document.getElementById('resultado');
+resultadoDiv.textContent = 'Os múltiplos de 3 e 5 compreendidos entre 30 e 300 em ordem decrescente são: ' + numeros.join(', ');
+</script>
+
+</body>
+</html>

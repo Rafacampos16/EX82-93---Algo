@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Lado de Losango</title>
+<style>
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  padding: 8px;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.resultado {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Exercício 83</h2>
+  <p>Conhecendo a diagonal maior e a diagonal menor de um losango regular, crie uma
+    aplicação para calcular o valor de seu lado.
+    <br>Atenção: Os valores não podem ser negativos ou iguais a zero.
+    </p>
+  <div class="input-group">
+    <label for="diagonalMaior">Digite o valor da diagonal maior:</label>
+    <input type="number" id="diagonalMaior" required>
+  </div>
+  <div class="input-group">
+    <label for="diagonalMenor">Digite o valor da diagonal menor:</label>
+    <input type="number" id="diagonalMenor" required>
+  </div>
+  <button onclick="calcularLado()">Calcular Lado</button>
+  <div class="resultado" id="resultado"></div>
+</div>
+
+<script>
+function calcularLado() {
+  const diagonalMaior = parseFloat(document.getElementById('diagonalMaior').value);
+  const diagonalMenor = parseFloat(document.getElementById('diagonalMenor').value);
+  
+  if (diagonalMaior <= 0 || diagonalMenor <= 0) {
+    document.getElementById('resultado').textContent = 'Valores inválidos';
+  } else {
+    const lado = Math.sqrt((diagonalMaior ** 2 + diagonalMenor ** 2) / 2);
+    document.getElementById('resultado').textContent = 'O valor do lado do losango é: ' + lado.toFixed(2);
+  }
+}
+</script>
+
+</body>
+</html>

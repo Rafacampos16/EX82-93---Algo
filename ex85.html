@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adição com Condição</title>
+<style>
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  padding: 8px;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.resultado {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Exercício 85: </h2>
+  <p>Construa uma aplicação que receba dois valores numéricos e efetue sua adição.
+   <br> Caso o resultado da adição seja maior que 10, exibir os números digitados, o valor da
+    adição e a raiz cúbica da adição.
+    <br>Caso contrário exibir somente os valores digitados e o valor da adição.
+    </p>
+  <div class="input-group">
+    <label for="valor1">Digite o primeiro valor:</label>
+    <input type="number" id="valor1" required>
+  </div>
+  <div class="input-group">
+    <label for="valor2">Digite o segundo valor:</label>
+    <input type="number" id="valor2" required>
+  </div>
+  <button onclick="calcularAdicao()">Calcular Adição</button>
+  <div class="resultado" id="resultado"></div>
+</div>
+
+<script>
+function calcularAdicao() {
+  const valor1 = parseFloat(document.getElementById('valor1').value);
+  const valor2 = parseFloat(document.getElementById('valor2').value);
+  
+  const adicao = valor1 + valor2;
+  
+  if (adicao > 10) {
+    const raizCubica = Math.cbrt(adicao).toFixed(2);
+    document.getElementById('resultado').innerHTML = `Os números digitados são: ${valor1} e ${valor2}.<br>A adição é: ${adicao}.<br>A raiz cúbica da adição é: ${raizCubica}`;
+  } else {
+    document.getElementById('resultado').innerHTML = `Os números digitados são: ${valor1} e ${valor2}.<br>A adição é: ${adicao}`;
+  }
+}
+</script>
+
+</body>
+</html>

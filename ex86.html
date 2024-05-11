@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercício 86 - Maior e Menor Número</title>
+<style>
+    /* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  justify-content: center;
+  height: 65vh;
+  margin-top: 90px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  padding: 8px;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.resultado {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Exercício 86:</h2>
+  <p>Elabore uma aplicação que faça leitura de vários números inteiros e para cada vez que
+    um número for inserido a aplicação retorne o maior e o menor número lido.
+    <br>A aplicação também deve exibir todos os números inseridos.</p>
+  <input type="number" id="numeroInput">
+  <button onclick="lerNumero()">Inserir Número</button>
+  <div id="resultado"></div>
+</div>
+
+<script>
+  let numeros = [];
+  let maiorNumero = Number.MIN_SAFE_INTEGER;
+  let menorNumero = Number.MAX_SAFE_INTEGER;
+
+  function lerNumero() {
+    const input = document.getElementById('numeroInput');
+    const numero = parseInt(input.value);
+
+    if (!isNaN(numero)) {
+      numeros.push(numero);
+      input.value = '';
+
+      if (numero > maiorNumero) {
+        maiorNumero = numero;
+      }
+
+      if (numero < menorNumero) {
+        menorNumero = numero;
+      }
+
+      exibirResultados();
+    } else {
+      alert('Por favor, insira um número inteiro válido.');
+    }
+  }
+
+  function exibirResultados() {
+    const resultadoDiv = document.getElementById('resultado');
+    resultadoDiv.innerHTML = '';
+
+    resultadoDiv.innerHTML += '<h3>Números inseridos:</h3>';
+    resultadoDiv.innerHTML += '<p>' + numeros.join(', ') + '</p>';
+    resultadoDiv.innerHTML += '<h3>Maior número:</h3>';
+    resultadoDiv.innerHTML += '<p>' + maiorNumero + '</p>';
+    resultadoDiv.innerHTML += '<h3>Menor número:</h3>';
+    resultadoDiv.innerHTML += '<p>' + menorNumero + '</p>';
+  }
+</script>
+
+</body>
+</html>
